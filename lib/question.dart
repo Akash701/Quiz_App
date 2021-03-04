@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/qfunctions.dart';
 
 Qfunction qfunction = Qfunction();
+int score;
 
 class Questions extends StatefulWidget {
   @override
