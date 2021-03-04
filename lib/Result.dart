@@ -1,9 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:quiz_app/qfunctions.dart';
 import 'package:quiz_app/qclass.dart';
+import 'question.dart';
 
 Qfunction qfunction = Qfunction();
-int score;
 
 class Result extends StatefulWidget {
   @override
@@ -11,23 +13,17 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
-  void result(bool userPickedAnswer) {
-    bool correctAnswer = qfunction.getCorrectAnswer();
-    setState(() {
-      if (userPickedAnswer == correctAnswer) {
-        score++;
-      }
-    });
-  }
+  Questions questions = Questions();
 
-  String medal() {
-    if (score >= 8) {
-      return 'Gold';
-    } else if (score == 8) {
-      return 'Silver';
+  Widget result() {
+    if (score >= 7) {
+      return Text('Gold');
+    } else if (score >= 5 && score < 7) {
+      return Text('Silver');
     } else {
-      return 'Bronze';
+      return Text('Bronze');
     }
+    // return Text('${score - 1}');
   }
 
   @override
@@ -52,7 +48,7 @@ class _ResultState extends State<Result> {
                 style: TextStyle(fontSize: 40),
               ),
             ),
-            Text(''),
+            result(),
           ],
         )),
       ),

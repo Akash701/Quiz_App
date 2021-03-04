@@ -10,7 +10,7 @@ class Questions extends StatefulWidget {
 }
 
 class _QuestionsState extends State<Questions> {
-  void checkAnswer(bool userPickedAnswer) {
+  int checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = qfunction.getCorrectAnswer();
     setState(() {
       if (qfunction.isFinished() == true) {
@@ -35,8 +35,8 @@ class _QuestionsState extends State<Questions> {
     });
     if (userPickedAnswer == correctAnswer) {
       score++;
-      print(score);
     }
+    return score;
   }
 
   List<Icon> scoreKeeper = [];
