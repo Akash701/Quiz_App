@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import 'question.dart';
 import 'package:quiz_app/Home.dart';
 import 'package:quiz_app/question.dart';
+import 'package:quiz_app/Result.dart';
 
 void main() {
   runApp(QuizApp());
@@ -16,6 +17,7 @@ class QuizApp extends StatelessWidget {
       routes: {
         'home': (context) => Home(),
         'questions': (context) => Questions(),
+        'result': (context) => Result(),
       },
     );
   }

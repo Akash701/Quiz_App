@@ -13,7 +13,7 @@ class _QuestionsState extends State<Questions> {
     bool correctAnswer = qfunction.getCorrectAnswer();
     setState(() {
       if (qfunction.isFinished() == true) {
-        //Statement when the quiz is finished
+        Navigator.pushNamed(context, 'result');
       } else {
         if (userPickedAnswer == correctAnswer) {
           scoreKeeper.add(Icon(
@@ -50,7 +50,7 @@ class _QuestionsState extends State<Questions> {
         constraints: BoxConstraints.expand(),
         child: SafeArea(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
                 height: 30,
@@ -64,13 +64,20 @@ class _QuestionsState extends State<Questions> {
               ),
               Container(
                 child: Expanded(
-                  child: Center(
-                    child: Text(
-                      qfunction.getQuestionText(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        color: Colors.white,
+                  flex: 5,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 10,
+                      right: 10,
+                    ),
+                    child: Center(
+                      child: Text(
+                        qfunction.getQuestionText(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -116,7 +123,11 @@ class _QuestionsState extends State<Questions> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0)),
                 color: Colors.lightBlue,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  qfunction.reset();
+                  scoreKeeper = [];
+                },
                 child: Text(
                   'Quit',
                   style: TextStyle(
