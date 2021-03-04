@@ -52,7 +52,7 @@ class _ResultState extends State<Result> {
                 style: TextStyle(fontSize: 40),
               ),
             ),
-            Text(medal()),
+            Text(''),
           ],
         )),
       ),

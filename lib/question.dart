@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/qfunctions.dart';
 
 Qfunction qfunction = Qfunction();
-int score;
+int score = 0;
 
 class Questions extends StatefulWidget {
   @override
@@ -33,6 +33,10 @@ class _QuestionsState extends State<Questions> {
         //Statement when the quiz is not finished
       }
     });
+    if (userPickedAnswer == correctAnswer) {
+      score++;
+      print(score);
+    }
   }
 
   List<Icon> scoreKeeper = [];
