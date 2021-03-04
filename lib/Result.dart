@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:quiz_app/qfunctions.dart';
-import 'package:quiz_app/qclass.dart';
+//import 'package:quiz_app/qclass.dart';
 import 'question.dart';
+import 'package:quiz_app/images.dart';
 
 Qfunction qfunction = Qfunction();
 
@@ -14,17 +15,7 @@ class Result extends StatefulWidget {
 
 class _ResultState extends State<Result> {
   Questions questions = Questions();
-
-  Widget result() {
-    if (score >= 7) {
-      return Text('Gold');
-    } else if (score >= 5 && score < 7) {
-      return Text('Silver');
-    } else {
-      return Text('Bronze');
-    }
-    // return Text('${score - 1}');
-  }
+  //AssetImage image;
 
   @override
   Widget build(BuildContext context) {
@@ -42,13 +33,21 @@ class _ResultState extends State<Result> {
         child: SafeArea(
             child: Column(
           children: [
+            SizedBox(
+              height: 30,
+            ),
             Center(
               child: Text(
                 'Quiz Result',
-                style: TextStyle(fontSize: 40),
+                style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
               ),
             ),
-            result(),
+            SizedBox(
+              height: 50,
+            ),
           ],
         )),
       ),
