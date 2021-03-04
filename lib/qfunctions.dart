@@ -1,7 +1,7 @@
-import 'qclass.dart';
+import 'package:quiz_app/qclass.dart';
 
-class Questions {
-  int _questionNumber = 0;
+class Qfunction {
+  int questionNumber = 0;
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
@@ -31,21 +31,21 @@ class Questions {
   ];
 
   void nextQuestion() {
-    if (_questionNumber < _questionBank.length - 1) {
-      _questionNumber++;
+    if (questionNumber < _questionBank.length - 1) {
+      questionNumber++;
     }
   }
 
   String getQuestionText() {
-    return _questionBank[_questionNumber].questionText;
+    return _questionBank[questionNumber].questionText;
   }
 
   bool getCorrectAnswer() {
-    return _questionBank[_questionNumber].questionAnswer;
+    return _questionBank[questionNumber].questionAnswer;
   }
 
   bool isFinished() {
-    if (_questionNumber >= _questionBank.length - 1) {
+    if (questionNumber >= _questionBank.length - 1) {
       return true;
     } else {
       return false;
@@ -53,6 +53,6 @@ class Questions {
   }
 
   void reset() {
-    _questionNumber = 0;
+    questionNumber = 0;
   }
 }
