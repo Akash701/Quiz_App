@@ -9,8 +9,15 @@ class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [Center(child: Text('Question'))],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Center(
+              child: Text('Question'),
+            ),
+            Icon(Icons.priority_high_sharp),
+          ],
+        ),
       ),
     );
   }
