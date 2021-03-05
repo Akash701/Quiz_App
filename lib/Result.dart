@@ -83,6 +83,7 @@ class _ResultState extends State<Result> {
               'Your Score',
               style: TextStyle(
                 fontSize: 40,
+                fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
@@ -104,7 +105,13 @@ class _ResultState extends State<Result> {
                     ),
                   )),
             ),
+            SizedBox(
+              height: 60,
+            ),
             FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0)),
+              color: Colors.lightBlue,
               onPressed: () {
                 setState(() {
                   qfunction.reset();
@@ -113,7 +120,12 @@ class _ResultState extends State<Result> {
                   Navigator.pop(context);
                 });
               },
-              child: Text('Take New Quiz'),
+              child: Text(
+                'Take New Quiz',
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
             ),
           ],
         )),

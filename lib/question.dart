@@ -62,7 +62,7 @@ class _QuestionsState extends State<Questions> {
                 height: 30,
               ),
               Text(
-                'Question No ${qfunction.questionNumber}/12',
+                'Question No ${qfunction.questionNumber}:/12',
                 style: TextStyle(fontSize: 35, color: Colors.white),
               ),
               Row(
