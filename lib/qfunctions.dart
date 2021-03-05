@@ -1,6 +1,8 @@
 import 'package:quiz_app/qclass.dart';
+import 'package:quiz_app/question.dart';
 
 class Qfunction {
+  //Questions questions = Questions();
   int questionNumber = 0;
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),

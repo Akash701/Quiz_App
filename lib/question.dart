@@ -14,6 +14,7 @@ class _QuestionsState extends State<Questions> {
     bool correctAnswer = qfunction.getCorrectAnswer();
     setState(() {
       if (qfunction.isFinished() == true) {
+        qfunction.reset();
         Navigator.pushNamed(context, 'result');
       } else {
         if (userPickedAnswer == correctAnswer) {

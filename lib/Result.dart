@@ -18,13 +18,27 @@ class _ResultState extends State<Result> {
     if (score >= 7) {
       return Image.asset(
         'images/gold.png',
+        height: 200,
+        width: 200,
       );
     } else if (score >= 5 && score < 7) {
-      return Image.asset('images/silver.png');
+      return Image.asset(
+        'images/silver.png',
+        height: 200,
+        width: 200,
+      );
     } else {
-      return Image.asset('images/bronze.png');
+      return Image.asset(
+        'images/bronze.png',
+        height: 200,
+        width: 200,
+      );
     }
     // return Text('${score - 1}');
+  }
+
+  void scoreReset() {
+    score = 0;
   }
   //AssetImage image;
 
@@ -63,12 +77,44 @@ class _ResultState extends State<Result> {
               child: result(),
             ),
             SizedBox(
-              height: 40,
+              height: 70,
             ),
-            Text('Your Score'),
+            Text(
+              'Your Score',
+              style: TextStyle(
+                fontSize: 40,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
             Container(
-              child: Text('$score'),
-            )
+              height: 150.0,
+              width: 300.0,
+              color: Colors.transparent,
+              child: Container(
+                  decoration: BoxDecoration(
+                      color: Colors.purple,
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                  child: new Center(
+                    child: new Text(
+                      "$score",
+                      style: TextStyle(color: Colors.white, fontSize: 50),
+                      textAlign: TextAlign.center,
+                    ),
+                  )),
+            ),
+            FlatButton(
+              onPressed: () {
+                setState(() {
+                  qfunction.reset();
+                  scoreReset();
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                });
+              },
+              child: Text('Take New Quiz'),
+            ),
           ],
         )),
       ),
