@@ -4,7 +4,6 @@ import 'package:flutter/painting.dart';
 import 'package:quiz_app/qfunctions.dart';
 //import 'package:quiz_app/qclass.dart';
 import 'question.dart';
-import 'package:quiz_app/images.dart';
 
 Qfunction qfunction = Qfunction();
 
@@ -15,6 +14,18 @@ class Result extends StatefulWidget {
 
 class _ResultState extends State<Result> {
   Questions questions = Questions();
+  Widget result() {
+    if (score >= 7) {
+      return Image.asset(
+        'images/gold.png',
+      );
+    } else if (score >= 5 && score < 7) {
+      return Image.asset('images/silver.png');
+    } else {
+      return Image.asset('images/bronze.png');
+    }
+    // return Text('${score - 1}');
+  }
   //AssetImage image;
 
   @override
@@ -48,6 +59,16 @@ class _ResultState extends State<Result> {
             SizedBox(
               height: 50,
             ),
+            Center(
+              child: result(),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            Text('Your Score'),
+            Container(
+              child: Text('$score'),
+            )
           ],
         )),
       ),
